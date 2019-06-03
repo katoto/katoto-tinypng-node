@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/svonme/tinypng#readme",
   "dependencies": {
-    "iconv-lite": "^0.4.24"
+    "iconv-lite": "^0.4.24",
+    "request": "^2.88.0"
   }
 }

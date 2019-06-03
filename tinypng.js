@@ -13,7 +13,4 @@ if (process.argv[3]) {
     min = process.argv[3];
 }
 
-
-//tinypng("path",false);
-
 tinypng(path, min);

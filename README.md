@@ -6,3 +6,5 @@
 将申请的密匙填写到 tinypng/config/key.js 中
 
 然后就可以使用 node tinypng.js path true/false [true 覆盖原图，false 将保留原图创建一张 .min 的图片]
+
+## 利用熊猫压缩进行自动图片压缩

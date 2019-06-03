@@ -148,7 +148,6 @@ module.exports = function (oldpath, cover) {
                     oldsrc: item["oldsrc"],
                     newsrc: item["newsrc"],
                     error: function () {
-                      console.log(11111111)
                     },
                     callback: function () {
                         writeconsume(key, item["oldsrc"]);
