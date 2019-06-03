@@ -6,7 +6,7 @@ var path = require("path");
 var child_process = require('child_process');
 var JSON = require('./json.js');
 var download = require('./download.js');
-
+// 将原图上传到tinypng
 var upload = function (param) {
     var exec = child_process.exec;
     var cmd = "curl -i --user api:" + param["apikey"] + " --data-binary @" + param["oldsrc"] + " https://api.tinypng.com/shrink";
@@ -19,8 +19,6 @@ var upload = function (param) {
             data = "{" + data.substring(0, data.lastIndexOf('}}')) + "}";
             data = JSON.parse(data);
             param["url"] = data["url"];
-            console.log(param["url"])
-            console.log(param)
             param["url"] && download(param);
         }
     });
@@ -29,8 +27,6 @@ var upload = function (param) {
     free.stderr.on('data', function (info) {
         console.log("Upload : ", param["oldsrc"] + " - ", info);
     });
-    //free.on('exit', function (code, signal) {
-    //});
 };
 
 module.exports = function (param) {

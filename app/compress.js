@@ -17,7 +17,7 @@ function readKey() {
             }
         }
         else {
-            if (typeof keys == "string") {
+            if (typeof keys === "string") {
                 keys = [keys];
             }
             else {
@@ -73,11 +73,10 @@ function writeconsume(key, oldpath) {
 
 function getpaths(oldpath, cover) {
     var imagespath = path.resolve(oldpath || "");
-
     var dada = [];
     var reg = /\.jpg|\.jpeg|\.png/i;
 
-    var append = function (src) {
+    var append = function (src, newminpath) {
         var item = {
             oldsrc: src
         };
@@ -85,8 +84,10 @@ function getpaths(oldpath, cover) {
         if (cover === 'true') {
             item["newsrc"] = src;
         } else {
-            var lastIndexOf = src.lastIndexOf(".");
-            item["newsrc"] = [src.substring(0, lastIndexOf), src.substring(lastIndexOf)].join(".min");
+            // 放src_min 下
+            item["newsrc"] = newminpath
+            // var lastIndexOf = src.lastIndexOf(".");
+            // item["newsrc"] = [src.substring(0, lastIndexOf), src.substring(lastIndexOf)].join(".min");
         }
         dada.push(item);
     };
@@ -107,7 +108,11 @@ function getpaths(oldpath, cover) {
                 } else {
                     //如果是图片
                     if (files[i].match(reg)) {
-                        append(path.join(resolve, itempath));
+                        // 进行目录创建
+                        if(!fs.existsSync(path.join(resolve + '_min', ''))){
+                          fs.mkdirSync(path.join(resolve + '_min', ''))
+                        }
+                        append(path.join(resolve, itempath), path.join(resolve + '_min', itempath));
                     }
                 }
             }

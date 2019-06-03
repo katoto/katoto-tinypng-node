@@ -1,3 +1,8 @@
+/**
+ *  json 格式化
+ * 
+ */
+
 var app = function () {
     var JSON = {};
     (function () {
