@@ -19,6 +19,8 @@ var upload = function (param) {
             data = "{" + data.substring(0, data.lastIndexOf('}}')) + "}";
             data = JSON.parse(data);
             param["url"] = data["url"];
+            console.log(param["url"])
+            console.log(param)
             param["url"] && download(param);
         }
     });

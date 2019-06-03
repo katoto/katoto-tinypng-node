@@ -82,10 +82,9 @@ function getpaths(oldpath, cover) {
             oldsrc: src
         };
         //覆盖原图
-        if (cover) {
+        if (cover === 'true') {
             item["newsrc"] = src;
-        }
-        else {
+        } else {
             var lastIndexOf = src.lastIndexOf(".");
             item["newsrc"] = [src.substring(0, lastIndexOf), src.substring(lastIndexOf)].join(".min");
         }
@@ -149,10 +148,11 @@ module.exports = function (oldpath, cover) {
                     oldsrc: item["oldsrc"],
                     newsrc: item["newsrc"],
                     error: function () {
+                      console.log(11111111)
                     },
                     callback: function () {
                         writeconsume(key, item["oldsrc"]);
-                        log.push("图片 " + item["oldsrc"] + " 压缩后的地址为 " + item["newsrc"]);
+                        log.push("图片 " + item["oldsrc"] + " 压缩后的地址为 " + item["newsrc"], 'utf-8');
                         foreach(++index);
                     }
                 });

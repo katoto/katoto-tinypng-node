@@ -1,0 +1,23 @@
+{
+  "name": "tinypng",
+  "version": "1.0.0",
+  "description": "使用 tinypng 提供的 API 利用 Node.js 进行本地批量压缩图片",
+  "main": "tinypng.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/svonme/tinypng.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/svonme/tinypng/issues"
+  },
+  "homepage": "https://github.com/svonme/tinypng#readme",
+  "dependencies": {
+    "iconv-lite": "^0.4.24"
+  }
+}
